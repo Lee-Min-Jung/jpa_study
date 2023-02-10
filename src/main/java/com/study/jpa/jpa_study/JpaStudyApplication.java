@@ -18,22 +18,22 @@ public class JpaStudyApplication {
 
         // 엔티티 매니저 생성
 
-        EntityManager em = emf.createEntityManager();
+//        EntityManager em = emf.createEntityManager();
 
         // 트랜잭션 관리
 
-        EntityTransaction tx = em.getTransaction();
+//        EntityTransaction tx = em.getTransaction();
 
-        try{
-            tx.begin();
-//            logic(em); // 비즈니스 로직
-            tx.commit();
-        } catch (Exception e){
-            e.printStackTrace();
-            tx.rollback();
-        } finally {
-            em.close();
-        }
+//        try{
+//            tx.begin();
+////            logic(em); // 비즈니스 로직
+////            tx.commit();
+//        } catch (Exception e){
+//            e.printStackTrace();
+//            tx.rollback();
+//        } finally {
+//            em.close();
+//        }
 
         emf.close();
 

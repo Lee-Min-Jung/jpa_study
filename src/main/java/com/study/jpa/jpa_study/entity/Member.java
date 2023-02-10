@@ -2,6 +2,7 @@ package com.study.jpa.jpa_study.entity;
 
 import com.study.jpa.jpa_study.enums.RoleType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Table(name="member")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Member {
 
     @Id

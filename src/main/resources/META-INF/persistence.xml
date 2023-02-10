@@ -3,7 +3,7 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 <!--영속성 유닛 - 연결할 데이터베이스당 하나의 영속성 유닛을 등록함 name은 영속성 유닛의 고유한 이름-->
     <persistence-unit name="jpastudy">
-        <class>com.study.jpa.jpa_study.Entity.Member</class>
+        <class>com.study.jpa.jpa_study.entity.Member</class>
         <properties>
         <!--필수-->
             <!--JPA 표준 속성 - 특정 구현체에 종속되지 않는다-->

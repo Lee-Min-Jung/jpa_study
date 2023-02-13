@@ -35,16 +35,11 @@ public class JpaStudyApplication {
 
     }
     public static void logic(EntityManager em) {
-        Member member = em.find(Member.class, "member1");
-        Team team = member.getTeam();
-        System.out.println("팀 이름=" + team.getName());
+        Team team2 = new Team("team2", "팀2");
+        em.persist(team2);
 
-//        String jpql = "select m from Member m join m.team t where t.name=:teamName";
-//
-//        List<Member> resultList = em.createQuery(jpql, Member.class).setParameter("teamName", "팀1").getResultList();
-//
-//        for(Member member : resultList){
-//            System.out.println("[query] member.username=" + member.getUsername());
-//        }
+        Member member = em.find(Member.class, "member1");
+        member.setTeam(team2);
+
     }
 }

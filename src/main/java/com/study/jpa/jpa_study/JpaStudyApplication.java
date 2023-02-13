@@ -35,11 +35,10 @@ public class JpaStudyApplication {
 
     }
     public static void logic(EntityManager em) {
-        Team team2 = new Team("team2", "팀2");
-        em.persist(team2);
+        Member member1 = em.find(Member.class, "member1");
+        member1.setTeam(null);
 
-        Member member = em.find(Member.class, "member1");
-        member.setTeam(team2);
+
 
     }
 }

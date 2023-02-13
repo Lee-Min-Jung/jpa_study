@@ -1,34 +1,27 @@
 package com.study.jpa.jpa_study.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "member")
+@Table(name = "item")
 @Getter
 @Setter
-public class Member {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "item_id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "city")
-    private String city;
+    @Column(name = "price")
+    private int price;
 
-    @Column(name = "street")
-    private String street;
-
-    @Column(name = "zipcode")
-    private String zipcode;
-
-
-
+    @Column(name = "stockQuantity")
+    private int stockQuantity;
 }

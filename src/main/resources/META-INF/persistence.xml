@@ -4,9 +4,7 @@
 <!--영속성 유닛 - 연결할 데이터베이스당 하나의 영속성 유닛을 등록함 name은 영속성 유닛의 고유한 이름-->
     <persistence-unit name="jpastudy">
         <class>com.study.jpa.jpa_study.entity.Member</class>
-        <class>com.study.jpa.jpa_study.entity.Order</class>
-        <class>com.study.jpa.jpa_study.entity.OrderStatus</class>
-        <class>com.study.jpa.jpa_study.entity.Item</class>
+        <class>com.study.jpa.jpa_study.entity.Team</class>
         <properties>
         <!--필수-->
             <!--JPA 표준 속성 - 특정 구현체에 종속되지 않는다-->
@@ -21,7 +19,7 @@
             <property name="hibernate.format_sql" value="true"/> <!--하이버네이트가 실행한 sql을 출력할 때 보기 좋게 만듦-->
             <property name="hibernate..use_sql_comments" value="true"/> <!--쿼리를 출력할 때 주석도 함께 출력-->
             <property name="hibernate.id.new_generator_mappings" value="true"/> <!--jpa표준에 맞춘 새로운 키 생성 전략을 사용-->
-            <property name="hibernate.hbm2ddl.auto" value="create"/> <!--애플리케이션 실행 시점에 데이터베이스 테이블을 자동으로 생성-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!--애플리케이션 실행 시점에 데이터베이스 테이블을 자동으로 생성-->
         </properties>
 
     </persistence-unit>

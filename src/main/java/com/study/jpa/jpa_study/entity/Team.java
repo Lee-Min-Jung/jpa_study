@@ -5,26 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "team")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "member")
-public class Member {
+public class Team {
 
     @Id
-    @Column(name = "member_id")
+    @Column(name = "team_id")
     private String id;
 
-    @Column(name = "username")
-    private String username;
-
-    @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Team team;
+    private String name;
 }
-

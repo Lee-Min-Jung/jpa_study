@@ -1,5 +1,7 @@
 package com.study.jpa.jpa_study;
 
+import com.study.jpa.jpa_study.entity.Member;
+import com.study.jpa.jpa_study.entity.Team;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -15,47 +18,33 @@ public class JpaStudyApplication {
     public static void main(String[] args) {
         SpringApplication.run(JpaStudyApplication.class, args);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpastudy");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
 
-        // 엔티티 매니저 생성
-
-//        EntityManager em = emf.createEntityManager();
-
-        // 트랜잭션 관리
-
-//        EntityTransaction tx = em.getTransaction();
-
-//        try{
-//            tx.begin();
-////            logic(em); // 비즈니스 로직
-////            tx.commit();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//            tx.rollback();
-//        } finally {
-//            em.close();
-//        }
-
+        try{
+            tx.begin();
+            logic(em);
+            tx.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }finally {
+            em.close();
+        }
         emf.close();
 
     }
-//    public static void logic(EntityManager em) {
-//        String id = "id1";
-//        Member member = new Member();
-//        member.setId(id);
-//        member.setUsername("지한");
-//        member.setAge(2);
+    public static void logic(EntityManager em) {
+        Member member = em.find(Member.class, "member1");
+        Team team = member.getTeam();
+        System.out.println("팀 이름=" + team.getName());
+
+//        String jpql = "select m from Member m join m.team t where t.name=:teamName";
 //
-//        // 등록
+//        List<Member> resultList = em.createQuery(jpql, Member.class).setParameter("teamName", "팀1").getResultList();
 //
-//        em.persist(member);
-//        // 수정
-//        member.setAge(20);
-//        // 한 건 조회
-//        Member findMember = em.find(Member.class, id);
-//        // 목록 조회
-//
-//        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-//        // 삭제
-//        em.remove(member);
-//    }
+//        for(Member member : resultList){
+//            System.out.println("[query] member.username=" + member.getUsername());
+//        }
+    }
 }

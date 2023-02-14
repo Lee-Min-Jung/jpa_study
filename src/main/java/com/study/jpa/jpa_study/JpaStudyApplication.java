@@ -1,7 +1,6 @@
 package com.study.jpa.jpa_study;
 
-import com.study.jpa.jpa_study.entity.Member;
-import com.study.jpa.jpa_study.entity.Team;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -35,12 +34,7 @@ public class JpaStudyApplication {
 
     }
     public static void logic(EntityManager em) {
-        Team team = em.find(Team.class, "team1");
-        List<Member> members = team.getMembers();
 
-        for(Member member : members){
-            System.out.println("member.username = " + member.getUsername());
-        }
 
 
 

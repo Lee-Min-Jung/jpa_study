@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,5 +21,9 @@ public class Team {
     @Column(name = "team_id")
     private String id;
 
+    @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "team")
+    private List<Member> members = new ArrayList<Member>();
 }

@@ -35,8 +35,12 @@ public class JpaStudyApplication {
 
     }
     public static void logic(EntityManager em) {
-        Member member1 = em.find(Member.class, "member1");
-        member1.setTeam(null);
+        Team team = em.find(Team.class, "team1");
+        List<Member> members = team.getMembers();
+
+        for(Member member : members){
+            System.out.println("member.username = " + member.getUsername());
+        }
 
 
 

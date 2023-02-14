@@ -22,11 +22,9 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "member_id")
-    @Column(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
-    @Column(name = "order_item")
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     @Column(name = "order_date")

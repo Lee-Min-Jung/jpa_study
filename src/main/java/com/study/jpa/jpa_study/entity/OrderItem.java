@@ -18,12 +18,10 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "item_id")
-    @Column(name = "item")
     private Item item;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    @Column(name = "orders")
     private Order order;
 
     private int orderPrice;

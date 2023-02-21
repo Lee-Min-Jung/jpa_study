@@ -1,5 +1,6 @@
-package com.study.jpa.jpa_study.entity;
+package com.study.jpa.jpa_study.entity.Item;
 
+import com.study.jpa.jpa_study.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,25 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "item")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype")
 @Getter
 @Setter
-public class Item {
+public abstract class Item {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
     @Column(name = "item_id")
     private Long id;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "price")
     private int price;
-
-    @Column(name = "stockQuantity")
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<Category>();
+    private List<Category> categories = new ArrayList<>();
 }

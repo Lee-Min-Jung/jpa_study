@@ -1,5 +1,6 @@
 package com.study.jpa.jpa_study.entity;
 
+import com.study.jpa.jpa_study.entity.Item.Item;
 import lombok.Getter;
 import lombok.Setter;
 
